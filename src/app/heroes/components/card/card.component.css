@@ -1,0 +1,22 @@
+.card {
+  height: 740px;
+  margin-top: 20px;
+  min-height: 680px;
+  position: relative;
+}
+
+.card-buttons {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.card-image {
+  height: 450px;
+  background-size: cover;
+  object-fit: fill;
+}
+
+.card-content {
+  padding: 10px 15px;
+}

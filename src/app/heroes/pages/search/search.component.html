@@ -1,1 +1,42 @@
-<p>search works!</p>
+<div fxLayout="column">
+  <div>
+    <h2>Look For a Hero</h2>
+    <mat-divider></mat-divider>
+  </div>
+
+  <div style="margin-top: 10px" fxLayout="column">
+    <mat-form-field appearance="fill">
+      <input
+        type="text"
+        placeholder="Batman, Superman, etc..."
+        aria-label="Number"
+        matInput
+        [matAutocomplete]="auto"
+        [(ngModel)]="inputValue"
+        (input)="search()"
+      />
+      <mat-autocomplete
+        autoActiveFirstOption
+        #auto="matAutocomplete"
+        (optionSelected)="selectedOption($event)"
+      >
+        <mat-option *ngFor="let hero of heroes" [value]="hero">
+          {{ hero.superhero }}
+        </mat-option>
+
+        <mat-option
+          value=""
+          *ngIf="heroes.length === 0 && inputValue.trim().length"
+        >
+          <p class="message-error">
+            We don't have any results for: "{{ inputValue }}"
+          </p>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</div>
+
+<div>
+  <pre>{{ heroSelected | json }}</pre>
+</div>

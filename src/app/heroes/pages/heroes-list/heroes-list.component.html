@@ -1,1 +1,13 @@
-<p>heroes-list works!</p>
+<h2>Heroes List</h2>
+<mat-divider></mat-divider>
+
+<div
+  fxLayout="row wrap"
+  fxLayout.xs="column"
+  fxLayoutAlign="center"
+  fxLayoutGap="20px"
+>
+  <div fxFlex="25" fxFlex.sm="40" *ngFor="let hero of heroes">
+    <app-card [hero]="hero"></app-card>
+  </div>
+</div>

@@ -1,2 +1,47 @@
-<h1>HeroesApp</h1>
-<router-outlet></router-outlet>
+<mat-sidenav-container fullScreen>
+  <mat-sidenav #sidenav mode="over">
+    <mat-toolbar color="warn" class="navbar">
+      <span>Menu</span>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon aria-hidden="false">close</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <mat-nav-list (click)="sidenav.toggle()">
+      <a routerLink="./list" mat-list-item>
+        <mat-icon matListItemIcon>label</mat-icon>
+        <span>Heroes List</span>
+      </a>
+      <a routerLink="./add" mat-list-item>
+        <mat-icon matListItemIcon>add</mat-icon>
+        <span>Add Hero</span>
+      </a>
+      <a routerLink="./search" mat-list-item>
+        <mat-icon matListItemIcon>search</mat-icon>
+        <span>Search Hero</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar class="navbar">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="flex">
+      <span style="margin-right: 10px">{{ auth.username }}</span>
+      <button
+        mat-raised-button
+        style="margin-right: 90px"
+        color="warn"
+        (click)="logout()"
+      >
+        Logout
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

@@ -1,0 +1,16 @@
+.dialog {
+  padding: 20px;
+  overflow-y: hidden;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.text {
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  text-align: center;
+}
